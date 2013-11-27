@@ -46,16 +46,14 @@ class windows_certificate_authority (
 )
 {
   # Check the catype variable for valid entries
-  validate_re($catype,'^(EnterpriseRootCA|EnterpriseSubordinateCA|StandaloneRootCA|StandaloneSubordinateCA)$', 'The CA Type specified does not match a valid CA Type')
+  #validate_re($catype,'^(EnterpriseRootCA|EnterpriseSubordinateCA|StandaloneRootCA|StandaloneSubordinateCA)$', 'The CA Type specified does not match a valid CA Type')
   
   # Check the validityperiod variable for valid entries
-  validate_re($validityperiod,'^(hours|days|weeks|months|years)$', 'The validity period specified does not match a valid validity period')
+  #validate_re($validityperiod,'^(hours|days|weeks|months|years)$', 'The validity period specified does not match a valid validity period')
   
   # Install the Certificate Authority Role Service  
-    windows_certificate_authority::install {'Install CA':
-}
-->
+    windows_certificate_authority::install {'Install CA':}
+  ->
   # Configure the Certificate Authority Role Service  
-    windows_certificate_authority::adcscertificationauthority {'Configure CA':
-}
+    windows_certificate_authority::adcscertificationauthority {'Configure CA':}
 }

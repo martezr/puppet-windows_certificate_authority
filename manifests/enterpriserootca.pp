@@ -13,7 +13,7 @@ class windows_certificate_authority::enterpriserootca (
    exec {'Deploy Enterprise Root ADCS_CA':
       command   => " Install-AdcsCertificationAuthority -Force -CAType $catype -CACommonName $cacommonname -CryptoProviderName '$cryptoprovider' -KeyLength $keylength -HashAlgorithmName $hashalgorithm -ValidityPeriod $validityperiod -ValidityPeriodUnits $validityperiodunits ",
       provider  => powershell,
-      unless    => "((Get-CATemplate).Name).Contains('EFS')", # Check if CA templates exist to determine if an existing configuration exist
+      unless    => 'Test-Path HKLM:\System\CurrentControlSet\Services\CertSvc\Configuration', # Check if CA templates exist to determine if an existing configuration exist
        }
        
        }

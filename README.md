@@ -43,6 +43,7 @@ Class: windows_certificate_authority
 
 Example - Configure an Enterprise Root CA
 
+<pre>
   class {'windows_certificate_authority':
    catype        => 'EnterpriseRootCA',     #REQUIRED#
    cacommonname    => 'Production-CASRV1',  #REQUIRED#
@@ -52,7 +53,7 @@ Example - Configure an Enterprise Root CA
    validityperiod   => 'years',
    validityperiodunits => 5,
    }
-
+</pre>
 Parameters:
     $cacommonname         # Specifies the certification authority common name
     $catype               # Certification Authority Type {EnterpriseRootCA | EnterpriseSubordinateCA | StandaloneRootCA | StandaloneSubordinateCA}
