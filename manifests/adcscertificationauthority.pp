@@ -10,7 +10,7 @@ define windows_certificate_authority::adcscertificationauthority (
 
 # If the operating system is server 2012 then run the appropriate powershell commands otherwise abort with an error message
 
-  if $kernel_ver =~ /^6\.2/ {
+  if $kernel_ver =~ /^6\.2|^6\.3/ {
       
       
       case $catype{
